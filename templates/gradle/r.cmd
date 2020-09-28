@@ -1,0 +1,1 @@
+java -cp build\libs\gradle.jar com.stark.App

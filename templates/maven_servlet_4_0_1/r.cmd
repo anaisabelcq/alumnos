@@ -1,0 +1,1 @@
+mv ./target/ROOT.war C:\xampp\tomcat\webapps\ROOT.war
