@@ -1,0 +1,22 @@
+{
+	"titulo": "Bienvenido - Ingrese una opcion",
+	"opciones": [{
+		"nroOpcion": 1,
+		"descripcion": "Mostrar la hora",
+		"continuar": true,
+		"claseInstanciar": "edu.educacionit.servicios.Hora"
+	}, {
+		"nroOpcion": 2,
+		"descripcion": "Saludar",
+		"continuar": true,
+		"claseInstanciar": "edu.educacionit.servicios.Saludar"
+	}, {
+		"nroOpcion": 3,
+		"descripcion": "Salir",
+		"continuar": false,
+		"claseInstanciar": "N/A"
+	}],
+	"configuracion": {
+		"totalIntentos": 4
+	}
+}
