@@ -7,7 +7,7 @@
 		"claseInstanciar": "edu.educacionit.servicios.Hora"
 	}, {
 		"nroOpcion": 2,
-		"descripcion": "Saludar",
+		"descripcion": "Saludar a los amigos",
 		"continuar": true,
 		"claseInstanciar": "edu.educacionit.servicios.Saludar"
 	}, {
