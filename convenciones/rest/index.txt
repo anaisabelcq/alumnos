@@ -1,0 +1,92 @@
+---------------------------------------------------------------------
+API REST (se trata de una convencion de como enviar y recibir msj)
+---------------------------------------------------------------------
+
+El nombre que comunmente van a escuchar es RESTFULL
+
+Fundamentalmente se utilizan 4 verbos HTTP
+
+GET, POST, PUT, DELETE ---- CRUD
+
+C Create es POST
+R Read es GET
+U Update es PUT
+D Delete es DELETE
+
+Cada uno equivale a lo que en sql seria SELECT, INSERT, UPDATE, DELETE
+
+Aclaracion: Vamos a considerar que todos los servicios son sobre pedido
+
+GET
+   el get tiene dos formas de ser invocado
+   1) PRIMERA FORMA
+   url/pedido?nombre=pizza
+   en este caso, las posibles respuestas serian.
+   [] un array vacio en caso de no tener ninguna coincidencia
+   o un array con las coincidencias 
+   [{id:1, 'pizza Muzza'},{{id:2, 'pizza etc'}},{{id:3, 'pizza etc'}}]
+
+   En ambos casos el código de respuesta es 200 OK.
+
+   ***Tener en cuenta que el query string - ?nombre=zzz&?domicilio=zzz
+      es totalmente opcional siempre.
+
+      Ahora bien, como el resultado puede arrojar una cantidad muy grande
+      de resultados.
+      El programador puede optar poruqe algunos parámetros del queryString
+      sean obligatorios.
+
+   2) url/pedido/27e027fa-1bd8-47d1-831a-dc5ec18a325c
+      En este caso, siempre voy a requerir un solo objeto, un solo pedido.
+      En este caso si el pedido NO se encuentra se retorna
+      404 NOT FOUND      
+
+      Si se encontrase entonces 200 en el header y el objeto en el body.
+
+POST
+
+   El post no tiene parametros en la url
+
+   /pedido
+
+   en el body va a ir el objeto que quiero insertar
+
+   {
+       "id": "27e027fa-1bd8-47d1-831a-dc5ec18a325c",
+       "origen": "Las casas 3212",
+       "destino": "Arenales 6765"
+   }
+
+   Si se insertó correctamente se envia un HTTP 200
+   Generalmente en el body se manda algo, fechayhora de la insercion
+   pero NO es obgligatorio.
+
+PUT 
+   
+   El put siempre siempre requiere en la url el id que voy a modificar
+
+   url/pedido/27e027fa-1bd8-47d1-831a-dc5ec18a325c
+
+   en el body, voy a enviar todos los campos y estos se graban en su totalidad
+   :) WHERE ID = '27e027fa-1bd8-47d1-831a-dc5ec18a325c'
+
+DELETE
+
+   El delete siempre requiere en la url el id que voy borrar
+
+   url/pedido/27e027fa-1bd8-47d1-831a-dc5ec18a325c
+
+Consideraciones para tanto el GET, POST, PUT, DELETE.
+
+   Si la operacion, NO pudo ser concretada ? hay que enviar un codigo
+   http del motivo.
+
+   404 NOT FOUND - El ID no fue encontrado.
+   400 BAD REQUEST - Query string manda un campo que no existe.
+   
+   500 Exception del lado del servidor.
+       Aca el cliente NO puede hacer nada, solo reintentar mas adelante.
+
+
+
+   
