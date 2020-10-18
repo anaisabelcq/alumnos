@@ -1,0 +1,7 @@
+function ejemploFetchGet() {
+    
+}
+
+function ejemploFetchPost() {
+    
+}
