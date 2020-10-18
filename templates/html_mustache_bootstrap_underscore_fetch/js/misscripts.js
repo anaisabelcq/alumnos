@@ -1,5 +1,5 @@
 function ejemploGet() {
-    fetch('mi/getty')
+    fetch('http://localhost:8080/mi/getty')
         .then(function(response) {
             return response.json();
         })
@@ -12,10 +12,11 @@ function ejemploGet() {
 }
 
 function ejemploPostFormulario() {
-    fetch('/mi', {
+    fetch('http://localhost:8080/mi', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin':'*'
         },
         body: 'a=1&b=2'
         })
@@ -32,10 +33,11 @@ function ejemploPostFormulario() {
 }
 
 function ejemploPostObject() {
-    fetch('/mi', {
+    fetch('http://localhost:8080/mi', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin':'*'
         },
         body: JSON.stringify({nombre:'aldo', apellido:'sierra'})
         })
