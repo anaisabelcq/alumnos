@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### node ###
+node_modules/
+
 ### GRADLE ###
 .gradle/
 gradle/
