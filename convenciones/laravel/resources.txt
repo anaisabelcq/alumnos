@@ -1,0 +1,12 @@
+---------------------------------------------------------------------
+Mapeo de resources en laravel
+---------------------------------------------------------------------
+
+Verbo        Path	        Metodo
+
+GET          /controlador	index	
+GET	     /controlador/unId  show($id)
+POST	     /controlador       store(Request $request)
+PUT	     /controlador/unId  update(Request $request)
+DELETE	     /controlador/unId  destroy($id)
+
