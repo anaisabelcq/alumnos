@@ -9,4 +9,3 @@ GET	     /controlador/unId  show($id)
 POST	     /controlador       store(Request $request)
 PUT	     /controlador/unId  update(Request $request)
 DELETE	     /controlador/unId  destroy($id)
-
